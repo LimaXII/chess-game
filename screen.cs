@@ -1,4 +1,5 @@
 using board;
+using chess;
 
 namespace chess_game{
     class Screen{
@@ -30,6 +31,13 @@ namespace chess_game{
                 Console.Write(piece);
                 Console.ForegroundColor = aux;
             }
+        }
+
+        public static ChessPosition readChessPosition(){
+            string s = Console.ReadLine();
+            char column = s[0];
+            int line = int.Parse(s[1] + "");
+            return new ChessPosition(column,line);
         }
     }
 }

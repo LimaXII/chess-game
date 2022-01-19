@@ -5,15 +5,20 @@ namespace chess_game{
     class Program{
         static void Main(string[] args){
             try{
-                Board brd = new Board(8,8);
+                ChessMatch match = new ChessMatch(); 
 
-                brd.putPiece(new Tower(brd, Color.Black), new Position(0,0));
-                brd.putPiece(new Tower(brd, Color.Black), new Position(1,3));
-                brd.putPiece(new King(brd, Color.Black), new Position(0,2));
+                while (!match.ended){
+                    Console.Clear();
+                    Console.WriteLine();
+                    Screen.showBoard(match.brd);
+                    Console.WriteLine();
+                    Console.Write("Origin:");
+                    Position origin = Screen.readChessPosition().toPosition();
+                    Console.Write("Destiny:");
+                    Position destiny = Screen.readChessPosition().toPosition();
 
-                brd.putPiece(new Tower(brd, Color.White), new Position(3,5));
-
-                Screen.showBoard(brd);
+                    match.makeMovement(origin, destiny);
+                }                
             }
             catch(BoardException e){
                 Console.WriteLine(e.Message);
