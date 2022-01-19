@@ -1,8 +1,6 @@
 using board;
 using chess;
 
-// 158
-
 namespace chess_game{
     class Program{
         static void Main(string[] args){
@@ -12,6 +10,8 @@ namespace chess_game{
                 brd.putPiece(new Tower(brd, Color.Black), new Position(0,0));
                 brd.putPiece(new Tower(brd, Color.Black), new Position(1,3));
                 brd.putPiece(new King(brd, Color.Black), new Position(0,2));
+
+                brd.putPiece(new Tower(brd, Color.White), new Position(3,5));
 
                 Screen.showBoard(brd);
             }
